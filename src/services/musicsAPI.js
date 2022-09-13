@@ -3,5 +3,4 @@ const getMusics = async (id) => {
   const requestJson = await request.json();
   return requestJson.results;
 };
-
 export default getMusics;

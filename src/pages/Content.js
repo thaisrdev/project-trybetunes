@@ -22,8 +22,8 @@ class Content extends Component {
             <Search />
           </Route>
 
-          <Route path="/album/:id">
-            <Album />
+          <Route path="/album/:id" render={ (props) => <Album { ...props } /> }>
+            {/* quando tem o : automaticamente recebe const { match: {params: { id }}} = this.props; */}
           </Route>
 
           <Route path="/favorites">
