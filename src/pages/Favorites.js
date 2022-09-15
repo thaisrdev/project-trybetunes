@@ -6,7 +6,7 @@ class Favorites extends Component {
     return (
       <div>
         <Header />
-        <div data-testid="page-favorites">Favorites</div>
+        <div data-testid="page-favorites" />
       </div>
     );
   }

@@ -17,6 +17,7 @@ class Album extends React.Component {
 
   listMusic = async () => {
     const { match: { params: { id } } } = this.props;
+    // HELEN RIBAS ME AJUDOU
     console.log(this.props); // coloca antes pra ver o objeto?
     const music = await getMusics(id);
     console.log(music);
@@ -39,6 +40,8 @@ class Album extends React.Component {
             key={ element.trackId }
             trackName={ element.trackName }
             previewUrl={ element.previewUrl }
+            trackId={ element.trackId }
+            songs={ element }
           />
         ))}
 

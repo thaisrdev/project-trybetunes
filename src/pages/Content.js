@@ -23,7 +23,7 @@ class Content extends Component {
           </Route>
 
           <Route path="/album/:id" render={ (props) => <Album { ...props } /> }>
-            {/* quando tem o : automaticamente recebe const { match: {params: { id }}} = this.props; */}
+            {/* { HELLEN RIBAS ME AJUDOU } */}
           </Route>
 
           <Route path="/favorites">

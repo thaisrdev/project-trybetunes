@@ -105,7 +105,7 @@ class Search extends Component {
               </section>
             ))}
           </div>) : ''}
-        {notFound ? <p>Nenhum álbum foi encontrado</p> : ''}
+        {notFound && <p>Nenhum álbum foi encontrado</p> }
       </div>
     );
   }
