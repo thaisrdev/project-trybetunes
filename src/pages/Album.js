@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import MusicCard from '../components/MusicCard';
+import { removeSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class Album extends React.Component {
   state = {
@@ -27,6 +28,20 @@ class Album extends React.Component {
       tracks: music.slice(1) });
   };
 
+  getFavoritesList = async () => {
+    // this.setState({ isLoading: true });
+    await getFavoriteSongs();
+    // this.setState({ tracklist: favoritesList, isLoading: false });
+  };
+
+  removeTracks = (songs) => {
+    this.setState(async () => {
+      await removeSong(songs);
+      await this.getFavoritesList();
+      // this.setState({ isLoading: false });
+    });
+  };
+
   render() {
     const { artist, album, tracks } = this.state;
     return (
@@ -42,6 +57,8 @@ class Album extends React.Component {
             previewUrl={ element.previewUrl }
             trackId={ element.trackId }
             songs={ element }
+            tracklist={ tracks }
+            remove={ this.removeTracks }
           />
         ))}
 
