@@ -28,17 +28,10 @@ class Album extends React.Component {
       tracks: music.slice(1) });
   };
 
-  getFavoritesList = async () => {
-    // this.setState({ isLoading: true });
-    await getFavoriteSongs();
-    // this.setState({ tracklist: favoritesList, isLoading: false });
-  };
-
   removeTracks = (songs) => {
     this.setState(async () => {
       await removeSong(songs);
-      await this.getFavoritesList();
-      // this.setState({ isLoading: false });
+      await getFavoriteSongs();
     });
   };
 
